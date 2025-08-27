@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grozi - Your Online Grocery Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-green-600">Grozi</a>
+                </div>
+                <!-- Cart Icon -->
+                <div class="flex items-center">
+                    <a href="#" class="relative p-2 text-gray-600 hover:text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Fresh Groceries Delivered</h1>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Dummy Product Data and Rendering Script -->
+        <script>
+            const products = [
+                { name: 'Organic Bananas', price: 1.99, category: 'Fruits', imageUrl: 'https://placehold.co/300x300/F7C325/000000?text=Bananas' },
+                { name: 'Whole Milk, 1 Gallon', price: 3.49, category: 'Dairy', imageUrl: 'https://placehold.co/300x300/FFFFFF/000000?text=Milk' },
+                { name: 'Sourdough Bread', price: 4.25, category: 'Bakery', imageUrl: 'https://placehold.co/300x300/D2B48C/000000?text=Bread' },
+                { name: 'Free-Range Eggs', price: 5.15, category: 'Dairy', imageUrl: 'https://placehold.co/300x300/FFF8E1/000000?text=Eggs' },
+                { name: 'Avocado Hass', price: 1.50, category: 'Fruits', imageUrl: 'https://placehold.co/300x300/556B2F/FFFFFF?text=Avocado' },
+                { name: 'Chicken Breast', price: 9.99, category: 'Meat', imageUrl: 'https://placehold.co/300x300/F0E68C/000000?text=Chicken' },
+                { name: 'Cherry Tomatoes', price: 2.99, category: 'Vegetables', imageUrl: 'https://placehold.co/300x300/FF6347/FFFFFF?text=Tomatoes' },
+                { name: 'Spinach Bunch', price: 2.49, category: 'Vegetables', imageUrl: 'https://placehold.co/300x300/2E8B57/FFFFFF?text=Spinach' },
+                { name: 'Greek Yogurt', price: 3.99, category: 'Dairy', imageUrl: 'https://placehold.co/300x300/F5F5F5/000000?text=Yogurt' },
+                { name: 'Almond Butter', price: 7.99, category: 'Pantry', imageUrl: 'https://placehold.co/300x300/DEB887/000000?text=Almond+Butter' },
+                { name: 'Quinoa, 1 lb', price: 6.49, category: 'Pantry', imageUrl: 'https://placehold.co/300x300/F5DEB3/000000?text=Quinoa' },
+                { name: 'Olive Oil', price: 12.99, category: 'Pantry', imageUrl: 'https://placehold.co/300x300/BDB76B/000000?text=Olive+Oil' },
+                { name: 'Salmon Fillet', price: 14.99, category: 'Seafood', imageUrl: 'https://placehold.co/300x300/FA8072/FFFFFF?text=Salmon' },
+                { name: 'Blueberries, 1 Pint', price: 4.99, category: 'Fruits', imageUrl: 'https://placehold.co/300x300/4169E1/FFFFFF?text=Blueberries' },
+                { name: 'Cheddar Cheese Block', price: 5.49, category: 'Dairy', imageUrl: 'https://placehold.co/300x300/FFD700/000000?text=Cheese' },
+                { name: 'Ground Coffee', price: 10.99, category: 'Pantry', imageUrl: 'https://placehold.co/300x300/654321/FFFFFF?text=Coffee' },
+                { name: 'Baby Carrots', price: 1.99, category: 'Vegetables', imageUrl: 'https://placehold.co/300x300/FFA500/000000?text=Carrots' },
+                { name: 'Sparkling Water', price: 4.49, category: 'Beverages', imageUrl: 'https://placehold.co/300x300/ADD8E6/000000?text=Water' },
+                { name: 'Dark Chocolate Bar', price: 3.29, category: 'Snacks', imageUrl: 'https://placehold.co/300x300/4B0082/FFFFFF?text=Chocolate' },
+                { name: 'Oat Milk', price: 3.79, category: 'Dairy', imageUrl: 'https://placehold.co/300x300/FDF5E6/000000?text=Oat+Milk' }
+            ];
+
+            // Function to create and append product cards
+            function renderProducts() {
+                const grid = document.getElementById('product-grid');
+                if (!grid) return;
+                products.forEach(product => {
+                    const cardHTML = `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-56 object-cover">
+                            <div class="p-4 flex flex-col flex-grow">
+                                <p class="text-sm text-gray-500">${product.category}</p>
+                                <h3 class="text-lg font-semibold text-gray-800 truncate flex-grow">${product.name}</h3>
+                                <div class="flex items-center justify-between mt-4">
+                                    <p class="text-xl font-bold text-gray-900">$${product.price.toFixed(2)}</p>
+                                    <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += cardHTML;
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', renderProducts);
+        </script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; 2025 Grozi. All rights reserved.</p>
+            <p class="mt-2 text-sm">Your one-stop shop for fresh groceries, delivered to your door.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
