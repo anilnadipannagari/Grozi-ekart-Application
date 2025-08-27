@@ -1,9 +1,9 @@
 # Grozi-ekart-Application
-🛒 SwiftCart - Grocery Delivery Platform
-SwiftCart is a comprehensive, AI-powered grocery delivery application suite designed to provide a seamless shopping experience for customers, efficient management for administrators, and streamlined logistics for delivery partners.
+🛒 Grozi - Grocery Delivery Platform
+Grozi is a comprehensive, AI-powered grocery delivery application suite designed to provide a seamless shopping experience for customers, efficient management for administrators, and streamlined logistics for delivery partners.
 
 🌟 Overview
-This repository contains the complete source code for the SwiftCart platform, which is composed of three main components:
+This repository contains the complete source code for the Grozi platform, which is composed of three main components:
 
 Customer App (iOS/Android): A user-friendly mobile application for customers to browse products, place orders, and track deliveries in real-time.
 
@@ -76,16 +76,6 @@ Firebase Cloud Messaging (FCM)
 
 Deployment
 
-Docker, AWS / Google Cloud / Heroku
-
-🚀 Getting Started
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
-
-Prerequisites
-Node.js (v18.x or later)
-
-npm / yarn
-
-React Native CLI / Flutter SDK
+Docker, AWS / Google Cloud / HerokuSDK
 
 An appropriate database instance (PostgreSQL/MongoDB)
