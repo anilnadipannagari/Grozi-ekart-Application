@@ -1,6 +1,9 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
     <div style={{
       border: '1px solid #ddd',
@@ -18,17 +21,21 @@ const ProductCard = ({ product }) => {
       />
       <h3 style={{ marginTop: '1rem', marginBottom: '0.5rem' }}>{product.name}</h3>
       <p style={{ color: '#555' }}>Category: {product.category}</p>
-      <p style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0.5rem 0' }}>${product.price}</p>
-      <button style={{
-        width: '100%',
-        padding: '0.75rem',
-        backgroundColor: '#007bff',
-        color: 'white',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        fontSize: '1rem'
-      }}>
+      {/* Changed currency symbol to Rupees */}
+      <p style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0.5rem 0' }}>₹{product.price}</p>
+      <button 
+        onClick={() => addToCart(product)}
+        style={{
+          width: '100%',
+          padding: '0.75rem',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '1rem'
+        }}
+      >
         Add to Cart
       </button>
     </div>
